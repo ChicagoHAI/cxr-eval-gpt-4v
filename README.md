@@ -1,6 +1,6 @@
 # Codebase for GPT-4V Evaluation in Radiology Report Generation Task
 
-This repository details the experiments conducted as discussed in our paper on the evaluation of radiology report generation using GPT-4V(ison) model series.
+This repository details the experiments conducted as discussed in [our paper](https://www.arxiv.org/abs/2407.12176) on the evaluation of radiology report generation using GPT-4V(ison) model series (GPT-4-vision-preview (11/15/2023) and GPT-4o).
 
 ## Experiments Overview
 
@@ -8,7 +8,7 @@ This repository details the experiments conducted as discussed in our paper on t
 - **Experiment 2:** Medical Image Reasoning Capability
 - **Experiment 3:** Report Synthesis Given Medical Conditions
 
-We utilize the [MIMIC-CXR](https://physionet.org/content/mimic-cxr/2.0.0/) dataset [1] and the [IU X-RAY](https://openi.nlm.nih.gov/faq) dataset [2], evaluated using Microsoft's Azure OpenAI service and the official OpenAI API. Access to these APIs and datasets must be secured prior to conducting the experiments.
+We utilize the [MIMIC-CXR](https://physionet.org/content/mimic-cxr/2.0.0/) dataset [1], the [IU X-RAY](https://openi.nlm.nih.gov/faq) dataset [2] and the [CheXpert Plus](https://stanfordaimi.azurewebsites.net/datasets/5158c524-d3ab-4e02-96e9-6ee9efc110a1) dataset [3], evaluated using Microsoft's Azure OpenAI service. Access to these APIs and datasets must be secured prior to conducting the experiments.
 
 ## Setup Instructions
 
@@ -22,7 +22,7 @@ conda env create --name=<env_name> -f cxr-eval.yml
 
 ### Model Preparation
 
-Our codebase integrates CheXbert [3] for report labeling and RadGraph [4] for evaluation. Download the required model checkpoints from the [repository here](https://github.com/rajpurkarlab/CXR-Report-Metric) and place them in the `./models/` directory.
+Our codebase integrates CheXbert [4] for report labeling and RadGraph [5] for evaluation. Download the required model checkpoints from the [repository here](https://github.com/rajpurkarlab/CXR-Report-Metric) and place them in the `./models/` directory.
 
 ### Data Preparation
 
@@ -89,8 +89,8 @@ Refer to `label_processing.ipynb` for F1 calculation and `hypothesis_test.ipynb`
 
 [2] Dina Demner-Fushman, Marc D Kohli, Marc B Rosenman, Sonya E Shooshan, Laritza Ro-driguez, Sameer Antani, George R Thoma, and Clement J McDonald. Preparing a collection of radiology examinations for distribution and retrieval. Journal of the American Medical Informatics Association, 23(2):304–310, 2016.
 
-[3] Smit, Akshay, Saahil Jain, Pranav Rajpurkar, Anuj Pareek, Andrew Y. Ng, and Matthew P. Lungren. "CheXbert: combining automatic labelers and expert annotations for accurate radiology report labeling using BERT." arXiv preprint arXiv:2004.09167 (2020).
+[3] Pierre Chambon, Jean-Benoit Delbrouck, Thomas Sounack, Shih-Cheng Huang, Zhihong Chen, Maya Varma, Steven QH Truong, Chu The Chuong, and Curtis P. Langlotz. "Chexpert plus: Augmenting a large chest x-ray dataset with text radiology reports, patient demographics and additional image formats." arXiv preprint arXiv:2405.19538 (2024).
 
-[4] Jain, Saahil, Ashwin Agrawal, Adriel Saporta, Steven QH Truong, Du Nguyen Duong, Tan Bui, Pierre Chambon et al. "Radgraph: Extracting clinical entities and relations from radiology reports." arXiv preprint arXiv:2106.14463 (2021).
+[4] Smit, Akshay, Saahil Jain, Pranav Rajpurkar, Anuj Pareek, Andrew Y. Ng, and Matthew P. Lungren. "CheXbert: combining automatic labelers and expert annotations for accurate radiology report labeling using BERT." arXiv preprint arXiv:2004.09167 (2020).
 
-[5] Yu, Feiyang, Mark Endo, Rayan Krishnan, Ian Pan, Andy Tsai, Eduardo Pontes Reis, Eduardo Kaiser Ururahy Nunes Fonseca et al. "Evaluating progress in automatic chest x-ray radiology report generation." Patterns 4, no. 9 (2023).
+[5] Jain, Saahil, Ashwin Agrawal, Adriel Saporta, Steven QH Truong, Du Nguyen Duong, Tan Bui, Pierre Chambon et al. "Radgraph: Extracting clinical entities and relations from radiology reports." arXiv preprint arXiv:2106.14463 (2021).
