@@ -26,7 +26,7 @@ Our codebase integrates CheXbert [4] for report labeling and RadGraph [5] for ev
 
 ### Data Preparation
 
-Extract the 'indication', 'findings', and 'impression' sections from the MIMIC-CXR and IU X-RAY datasets. Randomly sample 300 studies, ensuring the exclusion of studies with empty impression or indication sections. . Prepare the following CSV files in your input directory:
+Extract the 'indication', 'findings', and 'impression' sections from the original report and ensure the exclusion of studies with empty impression or indication sections. Prepare the following CSV files in your input directory:
 
 - `ind_list_sample.csv` with columns 'study_id', 'path_image'
 - `gt_indc_sample.csv` with columns 'study_id', 'report'
@@ -48,7 +48,14 @@ Extract the 'indication', 'findings', and 'impression' sections from the MIMIC-C
 Execute the following commands for each dataset:
 
 ```
-python gen_repo.py --api <Azure api key> --endpoint <Azure endpoint> --type <prompt type> --p <prompt directory> --m <image directory> --i <input directory> --o <output directory>
+python gen_repo.py \
+  --api <Azure api key> \
+  --endpoint <Azure endpoint> \
+  --type <prompt type> \
+  --p <prompt directory> \
+  --m <image directory> \
+  --i <input directory> \
+  --o <output directory>
 ```
 
 Following data files will be stored in your output directory:
@@ -65,7 +72,14 @@ Following data files will be stored in your output directory:
 Prepare an additional CSV `gt_labels_sample.csv` for Experiment 3 with columns: 'study_id', 14 CXR conditions and put it in your input directory. Follow the [CheXbert](https://github.com/stanfordmlgroup/CheXbert) instructions for labeling. Noted thta Experiment 1_4 will also need to run the following command.
 
 ```
-python gen_labels.py --api <Azure api key> --endpoint <Azure endpoint> --type <prompt type> --p <prompt directory> --m <image directory> --i <input directory> --o <output directory>
+python gen_label.py \
+  --api <Azure api key> \
+  --endpoint <Azure endpoint> \
+  --type <prompt type> \
+  --p <prompt directory> \
+  --m <image directory> \
+  --i <input directory> \
+  --o <output directory>
 ```
 
 Following data files will be stored in your output directory:
