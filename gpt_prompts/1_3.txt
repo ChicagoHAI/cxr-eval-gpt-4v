@@ -1,0 +1,5 @@
+Below is an observation plan consisting of 14 conditions: "No Finding", "Enlarged Cardiomediastinum", "Cardiomegaly", "Lung Lesion", "Lung Opacity", "Edema", "Consolidation", "Pneumonia", "Atelectasis", "Pneumothorax", "Pleural Effusion", "Pleural Other", "Fracture", "Support Devices".
+
+Based on attached images, assign labels for each condition except "No Finding": "1", "0", "-1", "2". It is noted that "No Finding" is either "2" or "1". These labels have the following interpretation: 1 - The observation was clearly present on the chest X-ray image. 0 -  The observation was absent on the chest X-ray image and was mentioned as negative. -1 - The observation was unclear if it exists. 2 - the observation was absent but not explicitly mentioned.
+
+Based on labels you choose for each condition, write a report that contains only the FINDINGS and IMPRESSION sections. Don’t return any of your assigned labels. Provide only your generated report, without any additional explanation and special format. Your answer is for reference only and is not used for actual diagnosis. 
